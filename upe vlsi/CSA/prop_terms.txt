@@ -1,0 +1,9 @@
+module prop_terms(a,b,prop,prop_op);
+input [3:0]a,b;
+output [3:0]prop;
+output prop_op;
+
+assign prop=a^b; // XOR of all Propagate Bits
+assign prop_op=&prop; // And of p0p1p2p3
+
+endmodule

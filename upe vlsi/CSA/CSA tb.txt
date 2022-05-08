@@ -1,0 +1,22 @@
+`timescale 1ns / 1ps
+module CSA4_tb;
+reg [3:0]a,b;
+reg cin;
+wire [3:0]s;
+wire c;
+integer i;
+CSA4 uut (.a(a), 
+			 .b(b), 
+			 .cin(cin), 
+			 .s(s), 
+			 .c(c));
+
+initial begin
+a = 4'b0000; b = 4'b0000; cin = 1'b0; #50
+for(i=1; i<=15; i=i+1)
+	begin
+	#50
+	a = a+1; b = b+1; cin = ~cin;
+	end
+end
+endmodule

@@ -1,0 +1,14 @@
+module siso_bh(ip,clk,rst,op);
+input clk,ip,rst;
+output op;
+reg [3:0] x;
+always @(posedge clk)
+	begin
+	if (rst==1)
+	x <= 4'b0000;
+	else
+	x <= x >> 1;
+	x[3] <= ip;
+	end
+assign op = x[0];
+endmodule

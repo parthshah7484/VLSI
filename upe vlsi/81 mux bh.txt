@@ -1,0 +1,17 @@
+module m81(out, D, S0, S1, S2);
+input wire D,S0, S1, S2;
+output reg out;
+always@(*)
+begin
+case(S0 & S1 & S2)
+3'b000: out=1;
+3'b001: out=D;
+3'b010: out=~D;
+3'b011: out=1;
+3'b100: out=1;
+3'b101: out=~D;
+3'b110: out=~D;
+3'b111: out=~D;
+endcase
+end
+endmodule

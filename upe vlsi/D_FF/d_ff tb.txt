@@ -1,0 +1,34 @@
+module dff_tb_v;
+
+	// Inputs
+	reg d;
+	reg clk;
+	reg clear;
+
+	// Outputs
+	wire q;
+	wire qbar;
+
+	// Instantiate the Unit Under Test (UUT)
+	dff uut (
+		.q(q), 
+		.qbar(qbar), 
+		.d(d), 
+		.clk(clk), 
+		.clear(clear)
+	);
+
+	initial begin
+		// Initialize Inputs
+		d = 0;clk = 0;clear = 1;
+
+		// Wait 100 ns for global reset to finish
+		#100 d = 0;clear = 0;
+     	#100 d = 1;clear = 0;
+		#100 d = 1;clear = 1;
+		
+				// Add stimulus here
+
+	end
+      			 always #50 clk=~clk;
+endmodule

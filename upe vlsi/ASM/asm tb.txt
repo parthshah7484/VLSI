@@ -1,0 +1,37 @@
+module asm_tb_v;
+
+	// Inputs
+	reg clk;
+	reg x;
+
+	// Outputs
+	wire ya;
+	wire yb;
+	wire yc;
+	wire y1;
+	wire y2;
+
+	// Instantiate the Unit Under Test (UUT)
+	asm uut (
+		.clk(clk), 
+		.x(x), 
+		.ya(ya), 
+		.yb(yb), 
+		.yc(yc), 
+		.y1(y1), 
+		.y2(y2)
+	);
+
+	initial begin
+		// Initialize Inputs
+		clk = 1;
+		x = 1;
+
+		// Wait 100 ns for global reset to finish
+		#100;x = 1;   #100; x = 1;   #100; x = 1;   #100; x = 0; 
+        
+		// Add stimulus here
+
+	end
+always #50 clk=~clk;      
+endmodule

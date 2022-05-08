@@ -1,0 +1,32 @@
+module tffcase(q, clk, clr, t);
+
+output q;
+
+input clk;
+
+input clr;
+
+input t;
+
+reg q;
+initial
+
+q=0;
+
+always@(negedge clk)
+
+begin
+
+case({clr,t})
+
+2'b00: q=q;
+
+2'b10: q=0;
+
+2'b01: q=~q;
+
+endcase
+
+end
+
+endmodule

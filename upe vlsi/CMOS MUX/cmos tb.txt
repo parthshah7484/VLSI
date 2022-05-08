@@ -1,0 +1,28 @@
+module cmos_mux_tb_v;
+
+	// Inputs
+	reg s;
+	reg i1;
+	reg i0;
+
+	// Outputs
+	wire out;
+
+	// Instantiate the Unit Under Test (UUT)
+	cmos_mux uut (
+		.out(out), 
+		.s(s), 
+		.i1(i1), 
+		.i0(i0)
+	);
+
+	initial begin
+		// Initialize Inputs
+		s = 0; i1 = 0; i0 = 0; #100;
+		s = 0;i1 = 0;i0 = 1; #100;
+		s = 1;i1 = 0;i0 = 1; #100;
+		s = 1;i1 = 1;i0 = 1; 
+
+end	
+endmodule
+

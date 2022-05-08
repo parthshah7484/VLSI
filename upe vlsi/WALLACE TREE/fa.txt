@@ -1,0 +1,8 @@
+module fa(s,c,a,b,cin);
+input a,b,cin;
+output s,c;
+wire s1,c1,c2;
+ha h1(s1,c1,a,b);
+ha h2(s,c2,s1,cin);
+or (c,c2,c1);
+endmodule

@@ -1,0 +1,33 @@
+module fsm_111_mealey_tb_v;
+
+	// Inputs
+	reg reset;
+	reg a;
+	reg clk;
+
+	// Outputs
+	wire o;
+
+	// Instantiate the Unit Under Test (UUT)
+	fsm_111_mealey uut (
+		.o(o), 
+		.reset(reset), 
+		.a(a), 
+		.clk(clk)
+	);
+
+	initial begin
+		// Initialize Inputs
+		reset = 1; 
+		a = 1; 
+		clk = 1; 
+		// Wait 100 ns for global reset to finish 
+		#100; reset = 0; a = 1; 
+		#100; reset = 0; a = 1; 
+		#100; reset = 0; a = 1; 
+		#100; reset = 0; a = 0; 
+		#100; reset = 0; a = 1; 
+		#100;
+	end
+   always #50 clk=~clk;    
+endmodule

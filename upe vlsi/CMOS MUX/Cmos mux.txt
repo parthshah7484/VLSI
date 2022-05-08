@@ -1,0 +1,9 @@
+module cmos_mux(out,s,i1,i0);
+output out;
+input s,i0,i1;
+wire sbar;
+not n1(sbar,s);
+cmos(oout,i0,sbar,s);
+cmos(out,i1,s,bar);
+endmodule
+

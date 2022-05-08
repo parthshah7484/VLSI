@@ -1,0 +1,9 @@
+module mux8_1(out,s,i);
+output out;
+input [2:0]s;
+input [7:0]i;
+wire [1:0]w;
+mux4_1 m1(w[0],i[3:0],s[1:0]); 
+mux4_1 m2(w[1],i[7:4],s[1:0]);
+mux2_1 m3(out,w[0],w[1],s[2]);
+endmodule

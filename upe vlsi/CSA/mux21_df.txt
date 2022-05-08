@@ -1,0 +1,7 @@
+module mux21_df(x,y,sel,o);
+input x,y,sel;
+output o;
+
+assign o = (sel)? y : x;
+
+endmodule

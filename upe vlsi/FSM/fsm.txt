@@ -1,0 +1,61 @@
+module fsm_111_mealey(o,reset,a,clk); 
+output reg o; 
+input reset,a,clk; 
+reg[1:0]pre_s, nxt_s; 
+initial begin 
+pre_s=2'b00; 
+end 
+always@(posedge clk) 
+begin 
+if(reset==1) 
+begin pre_s=2'b00; 
+o=0;
+end 
+else 
+begin 
+case(pre_s) 2'b00:
+begin 
+if (a==1)
+begin 
+o=0; 
+nxt_s=2'b01;
+pre_s=nxt_s; 
+end 
+else 
+begin 
+o=0; 
+nxt_s=2'b00;
+pre_s=nxt_s; 
+end 
+end 
+2'b01:begin 
+if (a==1)begin 
+o=0; 
+nxt_s=2'b10;
+pre_s=nxt_s; 
+end 
+else begin 
+o=0; 
+nxt_s=2'b00;
+pre_s=nxt_s;
+end 
+end 
+2'b10:begin 
+if (a==1)
+begin 
+o=1; 
+nxt_s=2'b00;
+pre_s=nxt_s; 
+end 
+else 
+begin 
+o=0; 
+nxt_s=2'b00;
+pre_s=nxt_s; 
+end 
+end 
+default:pre_s=2'b00; 
+endcase 
+end 
+end 
+endmodule

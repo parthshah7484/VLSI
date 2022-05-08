@@ -1,0 +1,27 @@
+module inverter_tb_v;
+
+	// Inputs
+	reg data;
+
+	// Outputs
+	wire out;
+
+	// Instantiate the Unit Under Test (UUT)
+	inverter uut (
+		.out(out), 
+		.data(data)
+	);
+
+	initial begin
+		// Initialize Inputs
+		data = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+        data=1;
+		// Add stimulus here
+
+	end
+      
+endmodule
+

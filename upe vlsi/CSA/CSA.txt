@@ -1,0 +1,13 @@
+module CSA4(a,b,cin,s,c);
+input[3:0]a,b;
+input cin;
+output [3:0]s;
+output c;
+wire[3:0]prop;
+wire c0,propop;
+
+RA_str blk1(a[3:0],b[3:0],cin,s[3:0],c0);
+prop_terms blk2(a,b,prop,propop);
+mux21_df blk3(c0,cin,propop,c);
+
+endmodule

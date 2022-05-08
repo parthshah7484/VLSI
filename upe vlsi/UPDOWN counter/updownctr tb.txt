@@ -1,0 +1,36 @@
+module updowncntr_tb_v;
+
+	// Inputs
+	reg clr;
+	reg clk;
+	reg mod;
+
+	// Outputs
+	wire [3:0] q;
+
+	// Instantiate the Unit Under Test (UUT)
+	updowncntr uut (
+		.q(q), 
+		.clr(clr), 
+		.clk(clk), 
+		.mod(mod)
+	);
+
+	initial begin
+		// Initialize Inputs
+		clr = 1;
+		clk = 0;
+		mod = 1;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+       clr=0;
+		#1000;
+		clr=0; 
+		// Add stimulus here
+
+	end
+ always 
+ #50 clk =~clk;    
+endmodule
+

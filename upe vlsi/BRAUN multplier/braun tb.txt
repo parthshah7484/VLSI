@@ -1,0 +1,33 @@
+module braun_test_v;
+
+	// Inputs
+	reg [3:0] a;
+	reg [3:0] b;
+
+	// Outputs
+	wire [7:0] p;
+
+	// Instantiate the Unit Under Test (UUT)
+	braun uut (
+		.a(a), 
+		.b(b), 
+		.p(p)
+	);
+
+	initial begin
+		// Initialize Inputs
+		a = 0;
+		b = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;	 a=4; b=1;
+		#100;  a=5; b=3;
+		
+
+
+        
+		// Add stimulus here
+
+	end
+      
+endmodule

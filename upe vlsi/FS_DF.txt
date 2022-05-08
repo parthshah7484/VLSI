@@ -1,0 +1,8 @@
+module FS_DF(d,bo,a,b,c);
+output d,bo;
+input a,b,c;
+assign d=(!a&!b&c)|(a&!b&!c)|(!a&b&c)|(a&b&c);
+assign bo=(!a&c)|(!a&b)|(b&c);
+
+
+endmodule

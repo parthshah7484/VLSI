@@ -1,0 +1,30 @@
+module Memory_Design( Data, RD, WR, Address, Output); 
+input[3:0] Data;
+input RD, WR; 
+input[3:0] Address; 
+output reg[3:0] Output; 
+reg[3:0] RAM[15:0];
+reg[3:0] Temp;
+always@(Address) 
+	begin
+		if(WR)  
+
+			begin
+
+				RAM[Address]=Data; 
+				Temp=RAM[Address];
+			end
+
+		if(RD)
+
+			begin
+
+				Output=RAM[Address];
+
+			end
+
+	end
+
+endmodule
+
+

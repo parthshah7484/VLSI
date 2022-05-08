@@ -1,0 +1,20 @@
+`timescale 1ns / 1ps
+module siso_bh_tb;
+reg ip,clk,rst;
+wire op;
+siso_bh uut (.ip(ip), 
+		.clk(clk), 
+		.rst(rst), 
+		.op(op));
+initial begin
+		ip = 0;
+		clk = 0;
+		rst = 1;
+		// Wait 100 ns for global reset to finish
+		#10;
+		rst = 0;
+      end
+always #1 clk = ~clk;
+always #2 ip = ~ip;
+initial #100 $finish;
+endmodule

@@ -1,0 +1,11 @@
+module nandcmos(out,a,b);
+wire t;
+output out;
+input a,b;
+supply1 vdd;
+supply0 gnd;
+pmos m1(out,vdd,a);
+pmos m2(out,vdd,b);
+nmos m3(out,t,a);
+nmos m4(t,gnd,b);
+endmodule

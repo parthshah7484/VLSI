@@ -1,0 +1,72 @@
+
+module ROM_Test_v;
+
+	// Inputs
+	reg [3:0] Address;
+	reg RD;
+
+	// Outputs
+	wire [3:0] Output;
+
+	// Instantiate the Unit Under Test (UUT)
+	ROM_16x4 uut (
+		.Address(Address), 
+		.RD(RD), 
+		.Output(Output)
+	);
+
+	initial begin
+		// Initialize Inputs
+		Address = 4'b0000;
+RD = 1;
+#50;
+Address = 4'b0001;
+RD = 1;
+#50;
+Address = 4'b0010;
+RD = 1;
+#50;
+Address = 4'b0011;
+RD = 1;
+#50;
+Address = 4'b0100;
+RD = 1;
+#50;
+Address = 4'b0101;
+RD = 1;
+#50;
+Address = 4'b0110;
+RD = 1;
+#50;
+Address = 4'b0111;
+RD = 1;
+#50;
+Address = 4'b1000;
+RD = 1;
+#50;
+Address = 4'b1001;
+RD = 1;
+#50;
+Address = 4'b1010;
+RD = 1;
+#50;
+Address = 4'b1011;
+RD = 1;
+#50;
+Address = 4'b1100;
+RD = 1;
+#50;
+Address = 4'b1101;
+RD = 1;
+#50;
+Address = 4'b1110;
+RD = 1;
+#50;
+Address = 4'b1111;
+RD = 1;
+#50;
+
+	end
+      
+endmodule
+
