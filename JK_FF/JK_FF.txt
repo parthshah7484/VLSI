@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:    10:31:03 02/08/22
+// Design Name:    
+// Module Name:    jkff
+// Project Name:   
+// Target Device:  
+// Tool versions:  
+// Description:
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+module jkff(q,qbar,j,k,clk);
+input clk,j,k;
+output reg q,qbar;
+always @ (posedge clk)
+begin
+  if(k == 0)
+   begin
+	 q <= 0;
+	 qbar <= 0;
+   end
+  else if(j == 1 & k == 1)
+  begin
+   q <= ~q;
+	qbar <= ~qbar;
+  end
+end
+
+endmodule

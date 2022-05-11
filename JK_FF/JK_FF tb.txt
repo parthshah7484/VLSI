@@ -1,0 +1,64 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   09:10:54 02/15/2022
+// Design Name:   jkff
+// Module Name:   jkff_tb.v
+// Project Name:  lab2
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: jkff
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module jkff_tb_v;
+
+	// Inputs
+	reg j;
+	reg k;
+	reg clk;
+
+	// Outputs
+	wire q;
+	wire qbar;
+
+	// Instantiate the Unit Under Test (UUT)
+	jkff uut (
+		.q(q), 
+		.qbar(qbar), 
+		.j(j), 
+		.k(k), 
+		.clk(clk)
+	);
+
+	initial begin
+	clk = 0;
+	  forever #50 clk = ~clk;
+  end
+	initial begin
+		// Initialize Inputs
+		j = 0;
+		k = 1;
+
+		// Wait 100 ns for global reset to finish
+		#100; j = 1; k = 0;
+      #100; j = 1; k = 1;
+		#100; j = 0; k = 0;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
